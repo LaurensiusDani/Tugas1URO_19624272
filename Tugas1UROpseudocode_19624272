@@ -1,0 +1,63 @@
+### Pseudocode Permainan Tic-Tac-Toe Simpel
+
+1. Inisialisasi Variabel
+   - `board`: sebuah daftar yang merepresentasikan papan Tic-Tac-Toe dengan 9 slot kosong.
+   - `currentPlayer`: variabel untuk menyimpan giliran pemain saat ini ("X" atau "O").
+   - `winner`: variabel untuk menyimpan pemenang permainan, jika ada.
+   - `gameRunning`: boolean untuk menjaga agar permainan tetap berjalan sampai ada pemenang, seri, atau kondisi keluar.
+
+2. Mendefinisikan fungsi
+   - printBoard(board)
+     - Cetak kondisi papan saat ini dalam format grid 3x3.
+
+   - playerInput(board)
+     - Meminta pemain untuk memasukkan angka (1-9) untuk menempatkan tanda mereka.
+     - Cek apakah posisi yang dipilih valid dan belum terisi:
+       - Jika valid, tempatkan tanda milik `currentPlayer` pada papan.
+       - Jika tidak valid, beri tahu pemain untuk mencoba lagi.
+
+   - checkHorizontal(board)
+     - Cek setiap baris untuk melihat apakah terdapat tanda yang sama (baik "X" atau "O").
+     - Jika suatu baris memiliki tanda yang sama, atur `winner` dengan tanda tersebut dan kembalikan `True`.
+
+   - checkVertical(board)
+     - Cek setiap kolom untuk melihat apakah terdapat tanda yang sama.
+     - Jika suatu kolom memiliki tanda yang sama, atur `winner` dengan tanda tersebut dan kembalikan `True`.
+
+   - checkDiagonal(board)
+     - Cek kedua diagonal untuk melihat apakah terdapat tanda yang sama.
+     - Jika suatu diagonal memiliki tanda yang sama, atur `winner` dengan tanda tersebut dan kembalikan `True`.
+
+   - checkTie(board)
+     - Cek jika papan sudah penuh dan tidak ada pemenang:
+       - Jika ya, cetak papan, umumkan seri, dan atur `gameRunning` menjadi `False`.
+
+   - checkWin()
+     - Cek kondisi kemenangan dengan memanggil `checkDiagonal`, `checkVertical`, dan `checkHorizontal`.
+     - Jika ada kondisi kemenangan yang terpenuhi, cetak papan, umumkan pemenang, dan atur `gameRunning` menjadi `False`.
+
+   - switchPlayer()
+     - Ubah `currentPlayer` dari "X" ke "O" atau sebaliknya.
+
+   - computer(board)
+     - Jika `currentPlayer` adalah "O", pilih posisi acak bagi komputer untuk menempatkan tanda.
+     - Pastikan posisi yang dipilih belum terisi sebelum menempatkan tanda.
+     - Cek kondisi kemenangan dan seri, kemudian ubah giliran ke pemain lain.
+
+3. Loop Utama Permainan
+   - Selama `gameRunning` bernilai `True`:
+     - Tampilkan papan.
+     - Minta `currentPlayer` (Pemain "X") untuk melakukan gerakan dengan memanggil `playerInput`.
+     - Cek kondisi kemenangan atau seri:
+       - Jika kondisi terpenuhi, keluar dari loop.
+     - Ganti ke pemain berikutnya.
+     - Jika sekarang giliran komputer, panggil fungsi `computer`.
+
+4. Tanya untuk Bermain Lagi
+   - Setelah permainan selesai, tanyakan kepada pemain apakah ingin bermain lagi.
+     - Jika "Ya":
+       - Atur ulang `board` dan set `gameRunning` ke `True`.
+       - Mulai ulang loop permainan.
+     - Jika "Tidak", keluar dari program dengan pesan terima kasih.
+
+### Pseudocode ini menggambarkan struktur utama dan alur logika permainan Tic-Tac-Toe, menjelaskan fungsi utama, kondisi, dan keadaan permainan dalam bahasa Indonesia.
